@@ -1,5 +1,5 @@
 
-function RingProbe(Input,FPath,GPath,X,Y,nPOI)
+function SIFProbe(Input,FPath,GPath,X,Y,nPOI)
 
     UpdateStrategy = Input.UpdateStrategy
     ShapeFunctionOrder = Input.ShapeFunctionOrder
@@ -46,7 +46,6 @@ function RingProbe(Input,FPath,GPath,X,Y,nPOI)
 
     U = Vector{Float64}(undef,nPOI)     #initialize U array
     V = Vector{Float64}(undef,nPOI)     #initialize V array
-    ValidPOIZNCC = []
 
     for POI in 1:nPOI
 
@@ -70,7 +69,6 @@ function RingProbe(Input,FPath,GPath,X,Y,nPOI)
 
             U[POI] = P.u  
             V[POI] = P.v
-            push!(ValidPOIZNCC,ZNCC)
 
         else
 
@@ -80,9 +78,7 @@ function RingProbe(Input,FPath,GPath,X,Y,nPOI)
         end
 
     end
-
-    MeanZNCC = mean(ValidPOIZNCC)
         
-    return U,V,MeanZNCC
+    return U,V
 
 end
