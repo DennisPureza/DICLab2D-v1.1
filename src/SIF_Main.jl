@@ -17,12 +17,10 @@ function RunSIFProgram()
     
     #DIC parameters
 
-        OutputFolderPath = "Data//Output"
-        UpdateStrategy = "BSGN"
-        Incremental = false
-        SubsetShape = "square"
-        SubsetSize = 81
-        ShapeFunctionOrder = 4
+        UpdateStrategy = ""
+        SubsetShape = ""
+        SubsetSize = 
+        ShapeFunctionOrder = 
         StopCritValue = 1e-4
         MaxIterations = 10
         GaussSTD = 0.4
@@ -31,36 +29,36 @@ function RunSIFProgram()
 
     #SIF parameters
 
-        Poisson = 0.3
-        E = 1.95e5                      #N/mm²
-        kCondition = "PlaneStress"
-        nWilliamsTerms = 10
-        W = 50                          #mm
+        Poisson = 
+        E =                       #N/mm²
+        kCondition = ""
+        nWilliamsTerms = 
 
         #Square AOI (mm)
 
-            AOISize = 4                 #mm
-            StepSize = 5                #pixels
+            AOISize =                  #mm
+            StepSize =                 #pixels
 
         #
 
-        pixel2mm = 0.01172
+        pixel2mm = 
         mm2pixel = 1/pixel2mm
 
         PminPath = ""
         PmaxPath = ""
-        CrackTipPosition = [0;0]        #[x,y] in pixels in DIC CS
-        CrackAngle = 0                  #in degrees in DIC CS
+        x0 = 
+        y0 = 
+        CrackAngle =                   #in degrees in DIC CS
 
     #
 
     Input = InputParameters(
         "nothing",
-        OutputFolderPath,
+        "nothing",
         nothing,
         nothing,
         UpdateStrategy,
-        Incremental,
+        false,
         SubsetShape,
         SubsetSize,
         nothing,
@@ -86,7 +84,7 @@ function RunSIFProgram()
 
     #Displacements
 
-        U,V,MeanZNCC = RingProbe(Input,PminPath,PmaxPath,X,Y,nPOI)
+        U,V = RingProbe(Input,PminPath,PmaxPath,X,Y,nPOI)
 
     #Filter out low quality POIs
 
