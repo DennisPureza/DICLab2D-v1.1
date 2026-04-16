@@ -84,7 +84,7 @@ function RunSIFProgram()
 
     #Displacements
 
-        U,V = RingProbe(Input,PminPath,PmaxPath,X,Y,nPOI)
+        U,V = SIFProbe(Input,PminPath,PmaxPath,X,Y,nPOI)
 
     #Filter out low quality POIs
 
